@@ -6,6 +6,9 @@ interface Props {
   onSignIn?: () => void
   onSignOut?: () => void
   onAccount?: () => void
+  onBlog?: () => void
+  onLegal?: () => void
+  onHome?: () => void
 }
 
 const TEMPLATES = [
@@ -165,7 +168,7 @@ function HeroCanvas() {
   )
 }
 
-export default function LandingPage({ onStart, onSignIn, onSignOut, onAccount }: Props) {
+export default function LandingPage({ onStart, onSignIn, onSignOut, onAccount, onBlog, onLegal }: Props) {
   const { user } = useProjectStore()
 
   return (
@@ -185,6 +188,7 @@ export default function LandingPage({ onStart, onSignIn, onSignOut, onAccount }:
           <a href="#templates" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: 14 }}>Templates</a>
           <a href="#how"       style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: 14 }}>How it works</a>
           <a href="#pricing"   style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: 14 }}>Pricing</a>
+          <button onClick={onBlog} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: 14, cursor: 'pointer', padding: 0 }}>Blog</button>
           {user ? (
             <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
               <button onClick={onAccount} style={{
@@ -441,8 +445,8 @@ export default function LandingPage({ onStart, onSignIn, onSignOut, onAccount }:
         </div>
         <span>© 2026 WaveVizual. All rights reserved.</span>
         <div style={{ display: 'flex', gap: 24 }}>
-          <a href="#" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>Privacy</a>
-          <a href="#" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>Terms</a>
+          <button onClick={onBlog}  style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', cursor: 'pointer', fontSize: 13 }}>Blog</button>
+          <button onClick={onLegal} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', cursor: 'pointer', fontSize: 13 }}>Privacy & Terms</button>
         </div>
       </footer>
 
