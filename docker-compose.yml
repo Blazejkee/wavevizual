@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8000"
+    volumes:
+      - ./storage:/app/storage
+    environment:
+      - FFMPEG_PATH=ffmpeg
+      - FFPROBE_PATH=ffprobe
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "14"
+          memory: 28G
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "7777:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

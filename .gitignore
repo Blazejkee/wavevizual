@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Storage / uploads / renders
+storage/
+
+# Environment
+.env
+.env.*
+
+# SSH keys / PEM files
+*.pem
+
+# Claude Code internal settings (may contain tokens)
+.claude/
+
+# FFmpeg binaries (too large for GitHub)
+bin/ffmpeg
+bin/ffprobe
+bin/*.zip
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Docker volumes
+data/
